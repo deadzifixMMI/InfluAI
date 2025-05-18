@@ -1,0 +1,288 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #111;
+    color: #eee;
+  }
+  
+  #app {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  button {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #00ffaa;
+    color: #111;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  button:hover {
+    background-color: #00cc88;
+  }
+
+  .invert-logo {
+    filter: brightness(0) invert(1);
+  }
+  
+  .card {
+    background-color: #222;
+    border: 1px solid #333;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    border-color: #00ffaa;
+  }
+
+.tiktok-post {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  background-color: #000;
+  border: 1px solid #222;
+  border-radius: 15px;
+  margin: 20px;
+  padding: 30px;
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  position: relative;
+}
+
+.post-buttons {
+  position: absolute;
+  bottom: 30px;
+  display: flex;
+  gap: 30px;
+}
+
+.like-btn, .skip-btn {
+  font-size: 22px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.like-btn {
+  background-color: #ff0044;
+  color: white;
+}
+
+.skip-btn {
+  background-color: #333;
+  color: white;
+}
+
+.post-img {
+  margin-top: 20px;
+  max-height: 500px; /* augmente la hauteur max */
+  max-width: 90%;     /* pour s'adapter au conteneur */
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  object-fit: cover;
+}
+
+/* Par défaut */
+.profile-influencé {
+  background: linear-gradient(145deg, #2a0000, #000);
+  color: #fdd;
+  animation: subtle-glow 2s infinite alternate;
+}
+
+.profile-neutre {
+  background: linear-gradient(135deg, #1c1c1c, #111);
+  color: #eeeeee;
+}
+
+
+.profile-critique {
+  background: linear-gradient(135deg, #002a2a, #000);
+  color: #ccffcc;
+  font-style: italic;
+}
+
+@keyframes subtle-glow {
+  from { box-shadow: 0 0 10px #400; }
+  to   { box-shadow: 0 0 20px #f00; }
+}
+
+.step4-container {
+  background: #222;
+  color: #eee;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 500px;
+  margin: 60px auto;
+  box-shadow: 0 0 15px #00ffaa44;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.button-row button {
+  background-color: #00ffaa;
+  color: #111;
+  border: none;
+  padding: 12px 18px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.button-row button:hover {
+  background-color: #00cc88;
+}
+
+.contacts-alert {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: #900;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.fake-notif {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #333;
+  color: white;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ff0044;
+}
+
+.ad-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: yellow;
+  color: black;
+  padding: 15px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.step4-summary {
+  background: #111;
+  color: #eee;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 600px;
+  margin: 60px auto;
+  box-shadow: 0 0 10px #00ffaa;
+}
+
+.popup-window {
+  position: absolute;
+  background: #222;
+  color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  z-index: 9999;
+  box-shadow: 0 0 15px rgba(0,0,0,0.7);
+  max-width: 260px;
+  font-size: 14px;
+}
+.popup-window button {
+  margin-top: 10px;
+  padding: 6px 12px;
+  background-color: #ff0044;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.popup-green { border-left: 6px solid #0f0; }
+.popup-blue { border-left: 6px solid #09f; }
+.popup-red { border-left: 6px solid #f00; }
+.popup-yellow { border-left: 6px solid #ff0; color: #111; background: #ffc; }
+.popup-purple { border-left: 6px solid #c0f; }
+
+.fake-notif {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #444;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  z-index: 9998;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  animation: fadeInOut 4s ease-in-out;
+}
+
+.contacts-alert {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  background: #f44336;
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+  border-radius: 10px;
+  z-index: 9997;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+}
+
+.ad-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #ffcc00;
+  color: #111;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  z-index: 9996;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.5);
+}
+
+.step5 {
+  background-color: #111;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  color: #eee;
+  text-align: center;
+  max-width: 700px;
+  margin: auto;
+}
+.step5 ul {
+  text-align: left;
+  margin-top: 20px;
+  padding-left: 30px;
+}
+.step5 li {
+  margin-bottom: 10px;
+}
+.step5 .conclusion {
+  color: #ffaa00;
+}
