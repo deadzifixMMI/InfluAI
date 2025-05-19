@@ -6,7 +6,6 @@ let influencedCount = 0;
 let currentPost = 0;
 let radicalityScore = 0;
 
-// ========== PHASE D'INTRODUCTION ==========
 function renderHome() {
   app.innerHTML = `
     <p><em>“Ce que vous allez vivre est proche de ce que vous vivez chaque jour, sans le remarquer.”</em></p>
@@ -19,8 +18,6 @@ function startExperience() {
   renderStep1();
 }
 
-
-// ========== ÉTAPE 1 – CHOIX INFLUENCÉS ==========
 function renderStep1() {
   const question = step1Questions[currentQuestion];
   const biasOnLeft = Math.random() < 0.5;
@@ -122,7 +119,6 @@ const step1Questions = [
   }
 ];
 
-// ========== ÉTAPE 2 – FIL ALGORITHMIQUE TIKTOK-LIKE ==========
 const step2Posts = [
     {
       text: "",
@@ -158,7 +154,7 @@ const step2Posts = [
 
 function renderStep2() {
   const post = step2Posts[currentPost];
-  console.log("Post affiché :", post); // DEBUG
+  console.log("Post affiché :", post); 
 
   app.innerHTML = `
     <div class="tiktok-post">
@@ -172,15 +168,12 @@ function renderStep2() {
   `;
 }
 
-
-
 function likePost() {
   const tag = step2Posts[currentPost].tag;
   if (tag === "polarisé") radicalityScore += 1;
   if (tag === "radical") radicalityScore += 2;
   if (tag === "extrême") radicalityScore += 3;
   
-  // Mettez aussi à jour userData
   if (tag === "polarisé") userData.radicalityScore += 1;
   if (tag === "radical") userData.radicalityScore += 2;
   if (tag === "extrême") userData.radicalityScore += 3;
@@ -203,8 +196,6 @@ function nextPost() {
   }
 }
 
-// ========== ÉTAPE 3 – PLACEHOLDER ==========
-
 function getPlayerProfile() {
   if (userData.influencedCount >= 4 || userData.radicalityScore >= 10) return "influencé";
   if (userData.influencedCount <= 1 && userData.radicalityScore <= 3) return "critique";
@@ -222,7 +213,7 @@ function renderStep3Question(index) {
   const question = step3Questions[index];
   const profile = getPlayerProfile();
 
-  app.className = ""; // reset
+  app.className = "";
   app.classList.add(`profile-${profile}`);
 
   app.innerHTML = `
@@ -307,9 +298,8 @@ function renderFinalSummary() {
       color = "#ffaa00";
       break;
   }
-
-  // Affichage du résumé final
-  app.className = ""; // reset classes
+  
+  app.className = "";
   app.classList.add(`profile-${profile}`);
 
   app.innerHTML = `
@@ -322,8 +312,6 @@ function renderFinalSummary() {
     <button onclick="location.reload()">Recommencer</button>
   `;
 }
-
-// ========== ÉTAPE 4 – PLACEHOLDER ==========
 
 let step4CurrentPrompt = 0;
 let step4Accepted = 0;
@@ -405,7 +393,6 @@ const step4Prompts = [
   }
 ];
 
-
 function renderStep4() {
   const prompt = step4Prompts[step4CurrentPrompt];
   const html = `
@@ -460,17 +447,12 @@ function renderStep4Summary() {
   `;
 }
 
-// ========== ÉTAPE 5 – ANALYSE COMPORTEMENTALE & CONSEILS ==========
-
 function renderStep5() {
   const profile = getPlayerProfile();
 
-  // Nettoyer tous les éléments de l'étape 4
   document.body.style.backgroundImage = "none";
   document.querySelectorAll('.popup-window, .fake-notif, .contacts-alert, .ad-banner').forEach(el => el.remove());
 
-
-  // Analyse basée sur les données réelles
   const data = {
     influencedPercent: Math.round((userData.influencedCount / step1Questions.length) * 100),
     radicalityScore: userData.radicalityScore,
@@ -478,7 +460,6 @@ function renderStep5() {
     quizAnswers: userData.quizAnswers.map(r => r.answer)
   };
 
-  // Générer une analyse cohérente
   let traits = [];
   let conseils = [];
 
@@ -494,7 +475,6 @@ function renderStep5() {
   else if (data.darkPatternAccepts === 0) traits.push("méfiant(e) face aux stratégies numériques");
   else traits.push("soumis(e) à l’influence subtile des interfaces");
 
-  // Conseils
   if (data.influencedPercent >= 60 || data.radicalityScore >= 8)
     conseils.push("Prenez du recul face aux titres choc. Ce qui attire l’œil n’est pas toujours ce qui éclaire.");
 
@@ -507,7 +487,6 @@ function renderStep5() {
   if (conseils.length === 0)
     conseils.push("Restez alerte : même les esprits critiques peuvent être influencés à leur insu.");
 
-  // Affichage
   app.innerHTML = `
     <div class="step5">
       <h2>Étape 5 : Profil comportemental</h2>
@@ -531,6 +510,4 @@ function renderStep5() {
   `;
 }
 
-
-// ========== LANCEMENT ==========
 renderHome();
